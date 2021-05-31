@@ -19,7 +19,12 @@
     
 }
 
-
+.btn-login{
+    color: $blue;
+    &:hover{
+    background-color:$google-blue ;
+    }
+}
 .btn-primary {
     background-color: $blue;
     border-radius: 3px;

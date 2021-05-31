@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { ClienteEntry } from './ClienteEntry';
 
-export const JournalEntries = () => {
+export const ClienteEntries = () => {
 
     const { notes } = useSelector(state => state.notes);
 

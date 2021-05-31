@@ -14,6 +14,7 @@ export const startNewNote = () => {
         const newNote = {
             nombrecliente: '',
             direccion:'',
+            fono:'',
             categoria:'',
             nit:'',
             date: new Date().getTime()

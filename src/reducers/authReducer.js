@@ -2,7 +2,7 @@ import { types } from '../types/types';
 /*
     {
         uid: 'jagdfjahdsf127362718',
-        name: 'Fernando'
+        name: 'EverEdwin'
     }
 
 */

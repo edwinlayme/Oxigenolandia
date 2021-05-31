@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { JournalEntries } from './JournalEntries'
+import { ClienteEntries } from './ClienteEntries'
 import { startLogout } from '../../actions/auth';
 import { startNewNote } from '../../actions/notes';
 
@@ -28,7 +28,7 @@ export const Sidebar = () => {
                 </h3>
 
                 <button 
-                    className="btn"
+                    className="btn btn-login"
                     onClick={ hanleLogout }
                 >
                 <i className="fas fa-power-off"></i>
@@ -40,13 +40,30 @@ export const Sidebar = () => {
                 className="journal__new-entry"
                 onClick={ handleAddNew }
             >
-                <i className="fas fa-plus fa-5x"></i>
-                <p className="mt-5">
-                    Adicionar Cliente
+                  <i className="fas fa-store"></i>
+                <p className="mt-2">
+                    Ventas
                 </p>
             </div>
-
-            <JournalEntries />    
+            <div 
+                className="journal__new-entry"
+                onClick={ handleAddNew }
+            >
+                <i className="fas fa-chart-pie"></i>
+                <p className="mt-2">
+                    Reportes
+                </p>
+            </div>
+            <div 
+            className="journal__new-entry"
+                onClick={ handleAddNew }
+            >
+                <i className="fas fa-ad"></i>
+                <p className="mt-2">
+                    Cliente
+                </p>
+            </div>
+            <ClienteEntries />    
 
         </aside>
     )

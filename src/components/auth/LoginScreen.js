@@ -29,6 +29,7 @@ export const LoginScreen = () => {
 
     return (
         <>
+         <h2>Bienvenidos a App Oxigenolandia</h2>
             <h3 className="auth__title">Iniciar Sesión</h3>
 
             <form
@@ -64,12 +65,7 @@ export const LoginScreen = () => {
                     Login
                 </button>
 
-                <Link
-                    to="/auth/register"
-                    className="link" disabled={true}
-                >
-                    Crear Nueva Cuenta
-                </Link>
+
 
             </form>
         </>

@@ -24,31 +24,8 @@ export const NotesAppBar = () => {
 
     return (
         <div className="notes__appbar">
-            <span >Venta de Oxigeno Oxigenolandao</span>
+            <span ><b>Venta de Oxigeno Oxigenolandia</b></span>
 
-            <input 
-                id="fileSelector"
-                type="file"
-                name="file"
-                style={{ display: 'none' }}
-                onChange={ handleFileChange }
-            />
-
-            <div>
-                <button 
-                    className="btn"
-                    onClick={ handlePictureClick }
-                >
-                    Avatar
-                </button>
-
-                <button 
-                    className="btn"
-                    onClick={ handleSave }
-                >
-                    Guardar
-                </button>
-            </div>
         </div >
     )
 }

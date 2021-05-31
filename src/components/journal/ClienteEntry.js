@@ -3,7 +3,7 @@ import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import { activeNote } from '../../actions/notes';
 
-export const ClienteEntry = ({ id, date, nombrecliente, direccion, url }) => {
+export const ClienteEntry = ({ id, date, nombrecliente, direccion, fono,categoria,url }) => {
 
     const noteDate = moment(date);
     const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export const ClienteEntry = ({ id, date, nombrecliente, direccion, url }) => {
     const handleEntryClick = () => {
         dispatch(
             activeNote(id, {
-                date, nombrecliente, direccion, url
+                date, nombrecliente, direccion,fono,categoria, url
             })
         );
     }

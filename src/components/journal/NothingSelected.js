@@ -3,11 +3,12 @@ import React from 'react'
 export const NothingSelected = () => {
     return (
         <div className="nothing__main-content">
+            <b>
             <p>
-Seleccione crear nuevo cliente
-            </p>
+Bienvenidos a Oxigenolandia
+            </p></b>
 
-            <i className="far fa-file mt-5"></i>
+            <i className="fas fa-box-open fa-5x"></i>
 
         </div>
     )
