@@ -1,17 +1,17 @@
 import React from 'react';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
-import { activeNote } from '../../actions/notes';
+import { activeVenta } from '../../actions/ventas';
 
-export const ClienteEntry = ({ id, date, nombrecliente, direccion, fono,categoria,url }) => {
+export const VentaEntry = ({ id, detalleventa, cantidad, idcliente, nombrecliente, date,url }) => {
 
-    const noteDate = moment(date);
+    const ventaDate = moment(date);
     const dispatch = useDispatch();
 
     const handleEntryClick = () => {
         dispatch(
-            activeNote(id, {
-                date, nombrecliente, direccion,fono,categoria, url
+            activeVenta(id, {
+                date, detalleventa, cantidad, idcliente, nombrecliente, url
             })
         );
     }
@@ -35,16 +35,19 @@ export const ClienteEntry = ({ id, date, nombrecliente, direccion, fono,categori
 
             <div className="journal__entry-body">
                 <p className="journal__entry-title">
-                    {nombrecliente}
+                    {detalleventa}
                 </p>
                 <p className="journal__entry-content">
-                    {direccion}
+                    {cantidad}
+                </p>
+                <p className="journal__entry-content">
+                    {idcliente}
                 </p>
             </div>
 
             <div className="journal__entry-date-box">
-                <span> {noteDate.format('dddd')} </span>
-                <h4> {noteDate.format('Do')} </h4>
+                <span> {ventaDate.format('dddd')} </span>
+                <h4> {ventaDate.format('Do')} </h4>
             </div>
 
         </div>

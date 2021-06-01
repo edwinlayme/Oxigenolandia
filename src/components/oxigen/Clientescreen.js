@@ -1,6 +1,5 @@
 import React from 'react';
 import { Sidebar } from './Sidebar';
-import { NotesAppBar } from '../notes/NotesAppBar';
 import { NoteScreen } from '../notes/NoteScreen';
 import { NothingSelected } from './NothingSelected';
 import { useSelector } from 'react-redux';

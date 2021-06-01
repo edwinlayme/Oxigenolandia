@@ -2,8 +2,11 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { ClienteEntries } from './ClienteEntries'
+import { VentaEntries } from './VentaEntries'
 import { startLogout } from '../../actions/auth';
 import { startNewNote } from '../../actions/notes';
+import { startNewVenta } from '../../actions/ventas';
+import { startNewSolicitud } from '../../actions/solicitudes';
 
 export const Sidebar = () => {
 
@@ -17,7 +20,12 @@ export const Sidebar = () => {
     const handleAddNew = () => {
         dispatch( startNewNote() );
     }
-
+    const handleAddNewVenta = () => {
+        dispatch( startNewVenta() );
+    }
+    const handleAddNewSolicitud = () => {
+        dispatch( startNewSolicitud() );
+    }
     return (
         <aside className="journal__sidebar">
             
@@ -38,32 +46,32 @@ export const Sidebar = () => {
 
             <div 
                 className="journal__new-entry"
-                onClick={ handleAddNew }
+                onClick={ handleAddNewVenta }
             >
                   <i className="fas fa-store"></i>
-                <p className="mt-2">
-                    Ventas
-                </p>
-            </div>
-            <div 
-                className="journal__new-entry"
-                onClick={ handleAddNew }
-            >
-                <i className="fas fa-chart-pie"></i>
-                <p className="mt-2">
-                    Reportes
-                </p>
+                <a className="mt-2" href="/venta">
+                 Ventas
+                </a>
             </div>
             <div 
             className="journal__new-entry"
                 onClick={ handleAddNew }
             >
                 <i className="fas fa-ad"></i>
-                <p className="mt-2">
-                    Cliente
-                </p>
+                <a className="mt-2" href="/cliente">
+                 Clientes
+                </a>
             </div>
-            <ClienteEntries />    
+            <div 
+            className="journal__new-entry"
+                onClick={ handleAddNewSolicitud }
+            >
+                <i className="fas fa-ad"></i>
+                <a className="mt-2" href="/solicitud">
+                    Solicitudes
+                </a>
+            </div>
+            <ClienteEntries/>  
 
         </aside>
     )

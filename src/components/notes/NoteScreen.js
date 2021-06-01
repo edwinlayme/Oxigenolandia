@@ -3,14 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { NotesAppBar } from './NotesAppBar';
 import { useForm } from '../../hooks/useForm';
-import { activeNote,startSaveNote,startUploading,startDeleting } from '../../actions/notes';
+import { activeNote, startSaveNote, startUploading, startDeleting } from '../../actions/notes';
 
 export const NoteScreen = () => {
 
     const dispatch = useDispatch();
     const { active: note } = useSelector(state => state.notes);
     const [formValues, handleInputChange, reset] = useForm(note);
-    const { nit,categoria,fono,direccion,nombrecliente, id } = formValues;
+    const { nit, categoria, fono, direccion, nombrecliente, id } = formValues;
 
     const activeId = useRef(note.id);
     const { active } = useSelector(state => state.notes);
@@ -41,7 +41,7 @@ export const NoteScreen = () => {
 
     return (
         <div className="notes__main-content">
-<NotesAppBar />
+            <NotesAppBar />
 
             <div className="notes__content">
                 <label>Nombre/Razon Social:</label>
@@ -54,7 +54,7 @@ export const NoteScreen = () => {
                     value={nombrecliente}
                     onChange={handleInputChange}
                 />
-                  <hr/>
+                <hr />
                 <label>Dirección:</label>
                 <input
                     placeholder="Direccion"
@@ -63,8 +63,8 @@ export const NoteScreen = () => {
                     value={direccion}
                     onChange={handleInputChange}
                 />
-                  <hr/>
-              <label>Fono:</label>
+                <hr />
+                <label>Fono:</label>
                 <input
                     placeholder="Teléfono/Cel."
                     className="notes__title-input"
@@ -72,17 +72,8 @@ export const NoteScreen = () => {
                     value={fono}
                     onChange={handleInputChange}
                 />
-            <hr/>
-                <label>Categoria:</label>
-                <select name="categoria" 
-                form="form" 
-                className="notes__title-input"
-                onChange={handleInputChange}>
-                     <option value="Centro de Salud">Centro de Salud</option>
-                    <option value="Empresa">Empresa u Organizacion</option>
-                    <option value="Particular">Persona Particular</option>
-                </select>
-                  <label>Nit:</label>
+                <hr />
+                <label>Nit:</label>
                 <input
                     placeholder="NIT/CI"
                     className="notes__title-input"
@@ -90,6 +81,17 @@ export const NoteScreen = () => {
                     value={nit}
                     onChange={handleInputChange}
                 />
+                <label>Categoria:</label>
+                <select name="categoria"
+                    value={categoria}
+                    form="form"
+                    className="notes__title-input"
+                    onChange={handleInputChange}>
+                    <option value="Centro de Salud">Centro de Salud</option>
+                    <option value="Empresa">Empresa u Organizacion</option>
+                    <option value="Particular">Persona Particular</option>
+                </select>
+
                 {
                     (note.url)
                     && (
@@ -104,12 +106,18 @@ export const NoteScreen = () => {
 
             </div>
 
-            <button 
-                    className="btn btn-primary"
-                    onClick={ handleSave }
-                >
-                    Guardar
-                </button>
+            <button
+                className="btn btn-primary"
+                onClick={handleSave}
+            >
+                Guardar
+            </button>
+            <button
+                className="btn btn-danger"
+                onClick={handleDelete}
+            >
+                Eliminar
+            </button>
 
         </div>
     )

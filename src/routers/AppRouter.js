@@ -11,10 +11,13 @@ import { firebase } from '../firebase/firebase-config'
 import { AuthRouter } from './AuthRouter';
 import { PrivateRoute } from './PrivateRoute';
 
-import { ClienteScreen } from '../components/journal/Clientescreen';
+import { ClienteScreen } from '../components/oxigen/Clientescreen';
+import { VentasScreen } from '../components/oxigen/Ventascreen';
+import { SolicitudScreen } from '../components/oxigen/SolicitudScreen';
 import { login } from '../actions/auth';
 import { PublicRoute } from './PublicRoute';
 import { startLoadingNotes } from '../actions/notes';
+import { SelectOption } from '../components/oxigen/SelectOption';
 
 export const AppRouter = () => {
 
@@ -47,7 +50,7 @@ export const AppRouter = () => {
 
     if (checking) {
         return (
-            <h1>Wait...</h1>
+            <h1>Espere...</h1>
         )
     }
 
@@ -61,12 +64,32 @@ export const AppRouter = () => {
                         component={AuthRouter}
                         isAuthenticated={isLoggedIn}
                     />
+                    <PrivateRoute
+                        exact
+                        isAuthenticated={isLoggedIn}
+                        path="/venta"
+                        component={VentasScreen}
+                    />
 
                     <PrivateRoute
                         exact
                         isAuthenticated={isLoggedIn}
-                        path="/"
+                        path="/cliente"
                         component={ClienteScreen}
+                    />
+
+                    <PrivateRoute
+                        exact
+                        isAuthenticated={isLoggedIn}
+                        path="/solicitud"
+                        component={SolicitudScreen}
+                    />
+
+                    <PrivateRoute
+                        exact
+                        isAuthenticated={isLoggedIn}
+                        path="/selecopcion"
+                        component={SelectOption}
                     />
 
                     <Redirect to="/auth/login" />
